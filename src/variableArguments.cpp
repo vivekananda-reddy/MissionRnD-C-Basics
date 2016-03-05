@@ -17,5 +17,16 @@ NOTES: 		use stdarg.h header.
 
 int variableArguments(int arg_count, ...)
 {
-	return 0;
+	va_list marks;
+	int i,count=0;
+	va_start(marks, arg_count);
+	for (i = 1; i <= arg_count; i++)
+	{
+		if (va_arg(marks, int) > 90)
+		{
+			count++;
+		}
+	}
+	va_end(marks);
+	return count;
 }
